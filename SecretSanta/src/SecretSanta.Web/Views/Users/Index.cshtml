@@ -1,7 +1,9 @@
 ﻿@{
     ViewBag.Title = "Users";
 }
-@model List<UserViewModel> 
+
+@model List<UserViewModel>
+
 @foreach (UserViewModel user in Model) {
     <section>
         @user.FirstName @user.LastName
