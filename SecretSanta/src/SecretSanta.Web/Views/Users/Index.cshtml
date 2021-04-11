@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+@model List<UserViewModel> 
+@foreach (UserViewModel user in Model) {
+    <section>
+        @user.FirstName @user.LastName
+    </section>
+}
+<a asp-controller="Users" asp-action="Create">Create</a>
