@@ -4,9 +4,13 @@
 
 @model List<UserViewModel>
 
-@foreach (UserViewModel user in Model) {
+@{int counter = 0;}
+
+@foreach (var user in Model)
+{
     <section>
-        @user.FirstName @user.LastName
+        @user.FirstName @user.LastName <a asp-controller="Users" asp-action="Edit" asp-route-id=counter>Edit</a>
+        @{counter++;}
     </section>
 }
 <a asp-controller="Users" asp-action="Create">Create</a>
