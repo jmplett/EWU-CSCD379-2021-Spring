@@ -1,0 +1,26 @@
+﻿@model GiftViewModel
+
+<form asp-controller="Gifts" asp-action="Create" method="post">
+    <div>
+        <label asp-for="GiftName"></label>: <input type="text" asp-for="GiftName" />
+        <span asp-validation-for="GiftName"></span>
+    </div>
+    <div>
+        <label asp-for="GiftDescription"></label>: <input type="text" asp-for="GiftDescription" />
+        <span asp-validation-for="GiftDescription"></span>
+    </div>
+    <div>
+        <label asp-for="GiftURL"></label>: <input type="text" asp-for="GiftURL" />
+        <span asp-validation-for="GiftURL"></span>
+    </div>
+    <div>
+        <label asp-for="GiftPriority"></label>: <input type="number" asp-for="GiftPriority" />
+        <span asp-validation-for="GiftPriority"></span>
+    </div>
+    <div>
+        <label asp-for="GiftUser"></label>: <input type="text" asp-for="GiftUser" />
+        <span asp-validation-for="GiftUser"></span>
+    </div>
+    <button>Create Gift</button>
+    </div>
+</form>
