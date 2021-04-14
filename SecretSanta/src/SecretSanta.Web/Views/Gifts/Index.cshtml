@@ -13,7 +13,7 @@
     @Gift.GiftDescription 
     @Gift.GiftURL 
     @Gift.GiftPriority
-    @Gift.GiftUser <a asp-controller="Gifts" asp-action="Edit" asp-route-id=@counter>Edit</a>
+    @Gift.GiftUser<a asp-controller="Gifts" asp-action="Edit" asp-route-id=@counter>Edit</a>
     <form asp-controller="Gifts" asp-action="Delete" method="post" asp-route-id=@counter><button>Delete</button></form>
     @{counter++;}
 </section>

@@ -1,21 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using SecretSanta.Web.Data;
 using SecretSanta.Web.ViewModels;
 
 namespace SecretSanta.Web.Controllers
 {
     public class UsersController : Controller
     { 
-
-        static List<UserViewModel> Users = new List<UserViewModel>
-        {
-            new UserViewModel {FirstName = "Justin", LastName = "Plett"},
-            new UserViewModel {FirstName = "Jimmy", LastName = "Jo"},
-        };
-
         public IActionResult Index()
         {
-            return View(Users);
+            return View(MockData.Users);
         }
 
         public IActionResult Create()
@@ -29,7 +24,7 @@ namespace SecretSanta.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                Users.Add(viewModel);
+                MockData.Users.Add(viewModel);
                 return RedirectToAction(nameof(Index));
             }
             return View(viewModel);
@@ -37,8 +32,8 @@ namespace SecretSanta.Web.Controllers
 
         public IActionResult Edit(int id)
         {
-            Users[id].Id = id;
-            return View(Users[id]);
+            MockData.Users[id].Id = id;
+            return View(MockData.Users[id]);
         }
 
         [HttpPost]
@@ -47,7 +42,7 @@ namespace SecretSanta.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                Users[viewModel.Id] = viewModel;
+                MockData.Users[viewModel.Id] = viewModel;
                 return RedirectToAction(nameof(Index));
             }
             return View(viewModel);
@@ -57,7 +52,7 @@ namespace SecretSanta.Web.Controllers
 
         public IActionResult Delete(int id)
         {
-            Users.RemoveAt(id);
+            MockData.Users.RemoveAt(id);
             return RedirectToAction(nameof(Index));
         }
     }

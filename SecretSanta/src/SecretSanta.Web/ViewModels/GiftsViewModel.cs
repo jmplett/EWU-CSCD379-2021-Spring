@@ -25,7 +25,7 @@ namespace SecretSanta.Web.ViewModels
 
         [Required]
         [Display(Name = "User")]
-        public string GiftUser { get; set; } = "";
+        public int GiftUser { get; set; } = 0;
 
     }
 }

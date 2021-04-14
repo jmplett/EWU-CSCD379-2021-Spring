@@ -18,8 +18,10 @@
         <span asp-validation-for="GiftPriority"></span>
     </div>
     <div>
-        <label asp-for="GiftUser"></label>: <input type="text" asp-for="GiftUser" />
-        <span asp-validation-for="GiftUser"></span>
+        <label asp-for="GiftUser"></label>
+        <select asp-for="GiftUser" asp-items="@(new SelectList(MockData.Users, "Id", "FullName"))">
+            <option>Please select one</option>
+        </select>
     </div>
     <button>Create Gift</button>
     </div>
