@@ -10,14 +10,16 @@
     <!-- End Stylesheets -->
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a asp-controller="Users" asp-action="Index">Users</a></li>
-            <li><a asp-controller="Groups" asp-action="Index">Groups</a></li>
-            <li><a asp-controller="Gifts" asp-action="Index">Gifts</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="bg-green-500">
+            <ul class="flex">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Users" asp-action="Index">Users</a></li>
+                <li><a asp-controller="Groups" asp-action="Index">Groups</a></li>
+                <li><a asp-controller="Gifts" asp-action="Index">Gifts</a></li>
+            </ul>
+        </nav>
+    </header>
     @RenderBody()
 
     <!-- Scripts -->
