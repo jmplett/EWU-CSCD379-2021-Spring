@@ -11,12 +11,12 @@
 </head>
 <body>
     <header>
-        <nav class="bg-green-500">
+        <nav class="bg-green-600">
             <ul class="flex">
-                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                <li><a asp-controller="Users" asp-action="Index">Users</a></li>
-                <li><a asp-controller="Groups" asp-action="Index">Groups</a></li>
-                <li><a asp-controller="Gifts" asp-action="Index">Gifts</a></li>
+                <li class="inline-block p-4 leading-8 text-3xl text-white"><a asp-controller="Home" asp-action="Index">Secret Santa</a></li>
+                <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Users" asp-action="Index">Users</a></li>
+                <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Groups" asp-action="Index">Groups</a></li>
+                <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Gifts" asp-action="Index">Gifts</a></li>
             </ul>
         </nav>
     </header>
