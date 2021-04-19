@@ -23,7 +23,9 @@
             </ul>
         </nav>
     </header>
-    @RenderBody()
+    <div class="m-4">
+        @RenderBody()
+    </div>
 
     <!-- Scripts -->
     <% for (var index in htmlWebpackPlugin.files.js) { %>
