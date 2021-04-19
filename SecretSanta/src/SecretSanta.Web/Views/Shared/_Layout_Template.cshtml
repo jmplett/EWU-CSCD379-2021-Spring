@@ -10,10 +10,13 @@
     <!-- End Stylesheets -->
 </head>
 <body>
-    <header>
-        <nav class="bg-green-600">
+    <header class="bg-green-600 flex flex-col sm:flex-row justify-between">
+        <div class="flex flex-row justify-between">
+            <a asp-controller="Home" asp-action="Index" class="inline-block p-4 leading-8 text-4xl text-white">Secret Santa</a>
+            <button class="sm:hidden text-gray-200 hover:text-gray-400 fas fa-bar">menu</button>
+        </div>
+        <nav class="hidden sm:inline-block">
             <ul class="flex">
-                <li class="inline-block p-4 leading-8 text-3xl text-white"><a asp-controller="Home" asp-action="Index">Secret Santa</a></li>
                 <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Users" asp-action="Index">Users</a></li>
                 <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Groups" asp-action="Index">Groups</a></li>
                 <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Gifts" asp-action="Index">Gifts</a></li>
