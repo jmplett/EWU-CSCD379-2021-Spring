@@ -1,28 +1,31 @@
 @model GiftViewModel
-
-<section class="grid grid-cols-1 sm:grid-cols-2">
-    <div>
+<section class="flex flex-col">
+    <div class="pr-3 m-2">
         <label asp-for="Title"></label>
         <input type="text" asp-for="Title" />
         <span asp-validation-for="Title"></span>
     </div>
-    <div>
+
+    <div class="pr-3 m-2">
         <label asp-for="Description"></label>
         <input type="text" asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
-    <div>
+</section>
+<section class="flex flex-col sm:flex-row">
+    <div class="pr-3 m-2">
         <label asp-for="Url"></label>
         <input type="text" asp-for="Url" />
         <span asp-validation-for="Url"></span>
     </div>
-    <div>
+
+    <div class="pr-3 m-2">
         <label asp-for="Priority"></label>
         <input type="text" asp-for="Priority" />
         <span asp-validation-for="Priority"></span>
     </div>
 </section>
-    <div>
+    <div class="pr-3 m-2">
         <label asp-for="UserId"></label>
             <select asp-for="UserId" asp-items="@(new SelectList(MockData.Users, "Id", "FullName"))">
                 <option>Please select one</option>
