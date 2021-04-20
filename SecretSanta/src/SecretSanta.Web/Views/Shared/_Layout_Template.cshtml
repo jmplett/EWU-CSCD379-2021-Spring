@@ -13,9 +13,9 @@
     <header class="bg-green-600 flex flex-col sm:flex-row justify-between">
         <div class="flex flex-row justify-between">
             <a asp-controller="Home" asp-action="Index" class="inline-block p-4 leading-8 text-4xl text-white">Secret Santa</a>
-             <button class="sm:hidden" onclick="toggleMenu()"><i class="fas fa-bars text-2xl align-middle h-full"></i></button>
+             <button id="headerNav"class="sm:hidden text-gray-200 hover:text-gray-400" onclick="toggleMenu()"><i class="fas fa-bars text-2xl align-middle h-full"></i></button>
         </div>
-        <nav class="hidden sm:inline-block">
+        <nav id="navigation" class="hidden sm:inline-block">
             <ul class="flex">
                 <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Users" asp-action="Index">Users</a></li>
                 <li class="inline-block p-4 leading-8 text-gray-200 hover:text-gray-400"><a asp-controller="Groups" asp-action="Index">Groups</a></li>
@@ -34,7 +34,7 @@
 
     <script>
         function toggleMenu() {
-            var headerNav = document.getElementById("headerNav");
+            var headerNav = document.getElementById("navigation");
             if (headerNav) {
                 if (headerNav.classList.contains("hidden")) {
                     headerNav.classList.remove("hidden");

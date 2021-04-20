@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tailwindcss": "2.1.1"
+    "tailwindcss": "2.1.1",
+    "alpinejs": "2.8.2"
   },
   "devDependencies": {
     "autoprefixer": "10.2.5",
