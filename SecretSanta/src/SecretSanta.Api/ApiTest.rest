@@ -1,7 +1,7 @@
 @hostname = localhost
 @port = 5101
 @host = https://{{hostname}}:{{port}}
-@ContentType = application/json 
+@contentType = application/json
 
 ###
 GET {{host}}/api/users
@@ -14,12 +14,20 @@ DELETE {{host}}/api/users/0
 
 ###
 POST {{host}}/api/users
-Content-Type: {{{{ContentType}}
+Content-Type: {{contentType}}
 
-"Bob Builder"
+{
+    "Id": 2,
+    "FirstName": "Tommy",
+    "LastName": "John"
+}
 
 ###
 PUT {{host}}/api/users/1
-Content-Type: {{ContentType}}
+Content-Type: {{contentType}}
 
-"Justin Time"
+{
+    "Id": 22,
+    "FirstName": "Bob",
+    "LastName": "Bobby"
+}
