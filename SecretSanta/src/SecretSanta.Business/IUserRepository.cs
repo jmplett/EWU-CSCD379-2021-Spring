@@ -10,6 +10,5 @@ namespace SecretSanta.Business
         bool Remove(int id);
         User Create(User item);
         void Save(User item);
-    
     }
 }
