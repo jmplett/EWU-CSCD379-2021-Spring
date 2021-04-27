@@ -68,6 +68,91 @@ namespace SecretSanta.Api.Tests.Controllers
             Assert.IsTrue(result.Result is NotFoundResult);
         }
 
+        [TestMethod]
+        public void Delete_WithId_ReturnsOk() {
+            //Arrange
+            UserRepository repository = new();
+            UsersController controller = new(repository);
+            
+            //Act
+            ActionResult result = controller.Delete(1);
+
+            //Assert
+            Assert.IsTrue(result is OkResult);
+        }
+
+        [TestMethod]
+        [DataRow(-123)]
+        [DataRow(-89)]
+        public void Delete_WithNegativeId_ReturnsNotFound(int index) {
+            //Arrange
+            TestableUserRepository repository = new();
+            UsersController controller = new(repository);
+
+            //Act
+            ActionResult result = controller.Delete(index);
+
+            //Assert
+            Assert.IsTrue(result is NotFoundResult);
+        }
+
+        [TestMethod]
+        [DataRow (22)]
+        public void Post_WithUserData_ReturnsUserData(int Index) {
+            //Arrange
+            UserRepository repository = new();
+            UsersController controller = new(repository);
+            User newUser = new User() {Id = Index, FirstName = "Bob", LastName = "Sam"};
+
+            //Act
+            User createdUser = controller.Post(newUser).Value;
+
+            //Assert
+            Assert.AreEqual(repository.GetItem(Index).Id, newUser.Id);
+        }
+
+        [TestMethod]
+        public void Post_WithNullData_ReturnsBadRequest() {
+            //Arrange
+            UserRepository repository = new();
+            UsersController controller = new(repository);
+            User myUser = null;
+
+            //Act
+            ActionResult<User?> result = controller.Post(myUser);
+
+            //Assert
+            Assert.IsTrue(result.Result is BadRequestResult);
+        }
+
+        [TestMethod]
+        public void Put_WithIdAndData_ReturnsOk() {
+            //Arrange
+            UserRepository repository = new();
+            UsersController controller = new(repository);
+            User newUser = new User() {Id = 43, FirstName = "Bob", LastName = "Sam"};
+
+            //Act
+            ActionResult result = controller.Put(5, newUser);
+
+            //Assert
+            Assert.IsTrue(result is OkResult);
+        }
+
+        [TestMethod]
+        public void Put_WithIdAndNullData_ReturnsBadRequest() {
+            //Arrange
+            UserRepository repository = new();
+            UsersController controller = new(repository);
+            User newUser = null;
+
+            //Act
+            ActionResult result = controller.Put(10, newUser);
+
+            //Assert
+            Assert.IsTrue(result is BadRequestResult);
+        }
+
         private class TestableUserRepository : IUserRepository
         {
             public User Create(User item)
