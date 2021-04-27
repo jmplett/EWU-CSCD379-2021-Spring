@@ -26,7 +26,7 @@ namespace SecretSanta.Business.Tests
         }
 
         [TestMethod]
-        public void GetUser_ValidId_ReturnsUserOfSameId()
+        public void GetItem_ValidId_ReturnsUserOfSameId()
         {
             UserRepository repository = new();
 
