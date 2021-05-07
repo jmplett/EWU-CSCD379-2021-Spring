@@ -1,36 +1,31 @@
 using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SecretSanta.Web.Api;
-using SecretSanta.Web.Data;
 using SecretSanta.Web.ViewModels;
-using System.Threading.Tasks;
 
 namespace SecretSanta.Web.Controllers
 {
     public class UsersController : Controller
     {
-        public IUsersClient Client { get; }
+        public IUsersClient UserClient { get; }
 
-        public UsersController(IUsersClient client)
+        public UsersController(IUsersClient userClient)
         {
-            Client = client ?? throw new ArgumentNullException(nameof(client));
+            UserClient = userClient ?? throw new ArgumentNullException(nameof(userClient));
         }
 
         public async Task<IActionResult> Index()
         {
-            ICollection<User> users = await Client.GetAllAsync();
-            List<UserViewModel> viewModelUsers = new();
-            foreach(User e in users)
+            var users = await UserClient.GetAllAsync();
+            var userViewModels = users.Select(x => new UserViewModel
             {
-                viewModelUsers.Add(new UserViewModel
-                {
-                    Id = e.Id,
-                    FirstName = e.FirstName,
-                    LastName = e.LastName
-                });
-            }
-            return View(viewModelUsers);
+                Id = x.Id,
+                FirstName = x.FirstName,
+                LastName = x.LastName
+            }).ToList();
+            return View(userViewModels);
         }
 
         public IActionResult Create()
@@ -41,10 +36,11 @@ namespace SecretSanta.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(UserViewModel viewModel)
         {
-            
             if (ModelState.IsValid)
             {
-                await Client.PostAsync(new User {
+                await UserClient.PostAsync(new FullUser
+                {
+                    Id = viewModel.Id,
                     FirstName = viewModel.FirstName,
                     LastName = viewModel.LastName
                 });
@@ -54,17 +50,27 @@ namespace SecretSanta.Web.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return View(Client.GetAsync(id));
+            FullUser user = await UserClient.GetAsync(id);
+            return View(new UserViewModel
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            });
         }
 
         [HttpPost]
-        public IActionResult Edit(UserViewModel viewModel)
+        public async Task<IActionResult> Edit(UserViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                //MockData.Users[viewModel.Id] = viewModel;
+                await UserClient.PutAsync(viewModel.Id, new UpdateUser
+                {
+                    FirstName = viewModel.FirstName,
+                    LastName = viewModel.LastName
+                });
                 return RedirectToAction(nameof(Index));
             }
 
@@ -74,7 +80,7 @@ namespace SecretSanta.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            await Client.DeleteAsync(id);
+            await UserClient.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
