@@ -1,9 +1,9 @@
 ﻿![](../../workflows/BuildAndTest/badge.svg)
 ![](../../workflows/Deploy/badge.svg)
 
-[**Link to running website**]()
+[**Link to running website**](https://jplettsecretsanta.azurewebsites.net)
 
-[**Link to my branch on my fork**]()
+[**Link to my branch on my fork**](https://github.com/jmplett/EWU-CSCD379-2021-Spring/tree/Assignment6)
 
 # Assignment 6
 
