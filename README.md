@@ -1,4 +1,10 @@
-﻿
+﻿![](../../workflows/BuildAndTest/badge.svg)
+![](../../workflows/Deploy/badge.svg)
+
+[**Link to running website**]()
+
+[**Link to my branch on my fork**]()
+
 # Assignment 6
 
 ## Overview
