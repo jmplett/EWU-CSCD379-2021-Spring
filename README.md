@@ -2,7 +2,7 @@
 
 [![Azure Deploy](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AzureDeploy.yml/badge.svg)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AzureDeploy.yml)
 
-[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/jplettsecretsanta.azurewebsites.net.svg)](https://jplettsecretsanta.azurewebsites.net)
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/jplettsecretsanta.azurewebsit.net.svg)](https://jplettsecretsanta.azurewebsites.net)
 
 
 [**Link to running website**](https://jplettsecretsanta.azurewebsites.net)
