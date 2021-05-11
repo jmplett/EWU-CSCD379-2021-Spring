@@ -1,4 +1,4 @@
-[![BuildAndTest](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/dotnet.yml/badge.svg)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/dotnet.yml)
+[![BuildAndTest](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AssignmentBuild.yml/badge.svg)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AssignmentBuild.yml)
 [![Azure Deploy](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AzureDeploy.yml/badge.svg)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AzureDeploy.yml)
 
 [**Link to running website**](https://jplettsecretsanta.azurewebsites.net)
