@@ -3,9 +3,9 @@ name: BuildAndTest
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ Assignment6 ]
+    branches: [ Assignment* ]
   pull_request:
-    branches: [ Assignment6 ]
+    branches: [ Assignment* ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
