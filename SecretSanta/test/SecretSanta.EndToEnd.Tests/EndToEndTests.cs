@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PlaywrightSharp;
 
-namespace SecretSanta.E2ETests
+namespace SecretSanta.EndToEndTests
 {
     [TestClass]
     public class EndToEndTests
