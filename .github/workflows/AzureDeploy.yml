@@ -6,7 +6,7 @@ name: Azure Deploy
 on:
   push:
     branches:
-      - Assignment6
+      - Assignmen*
 
 jobs:
   build-and-deploy:
