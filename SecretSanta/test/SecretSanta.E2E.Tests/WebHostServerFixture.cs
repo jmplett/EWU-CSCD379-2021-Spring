@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace SecretSanta.EndToEndTests
+namespace SecretSanta.E2E.Tests
 {
     public abstract class WebHostServerFixture : IDisposable
     {
