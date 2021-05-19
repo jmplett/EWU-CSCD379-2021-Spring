@@ -16,7 +16,7 @@ namespace SecretSanta.Web.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            return View(); 
         }
 
         public IActionResult Edit()
