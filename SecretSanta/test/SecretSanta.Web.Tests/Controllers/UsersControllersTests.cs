@@ -12,7 +12,12 @@ namespace SecretSanta.Web.Tests.Controllers
     [TestClass]
     public class UsersControllersTests
     {
-
+        [TestMethod]
+        public void Constructor_WithNullRepository_ThrowException()
+        {
+            var ex = Assert.ThrowsException<ArgumentNullException>(() => new UsersController(null!));
+            Assert.AreEqual("userClient", ex.ParamName);
+        }
 
         [TestMethod]
         public async Task Index_WithUsers_RetrievesUsers()
