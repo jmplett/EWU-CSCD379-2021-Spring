@@ -144,8 +144,6 @@ namespace SecretSanta.E2E.Tests
                 Headless = true
             });
 
-            var _newTitle = "Junk Title kjbn234nj234kjkj3ufwer";
-
             var page = await browser.NewPageAsync();
             var response = await page.GoToAsync(localhost + "Gifts");
 
@@ -156,13 +154,13 @@ namespace SecretSanta.E2E.Tests
             await page.ClickAsync("//html/body/section/section/section[last()]/a/section/div");
 
             IElementHandle elementHandle = await page.QuerySelectorAsync("input#Title");
-            await elementHandle.FillAsync(_newTitle);
+            await elementHandle.FillAsync("Pizza Pizza");
 
             await page.ClickAsync("text=Update");
 
             string titleAfterUpdate = await page.GetTextContentAsync("//html/body/section/section/section[last()]/a/section/div");
 
-            Assert.AreEqual(_newTitle, titleAfterUpdate);
+            Assert.AreEqual("Pizza Pizza", titleAfterUpdate);
         }
 
         [TestMethod]
