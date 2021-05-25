@@ -222,7 +222,7 @@ namespace SecretSanta.Api.Tests.Controllers
         }
 
         [TestMethod]
-        public async Task CreateAssignments_WithSuccess_ReturnsOk()
+        public async Task Assign_WithSuccess_ReturnsOk()
         {
             //Arrange
             using WebApplicationFactory factory = new();
@@ -237,17 +237,14 @@ namespace SecretSanta.Api.Tests.Controllers
             HttpClient client = factory.CreateClient();
 
             //Act
-            HttpResponseMessage response = await client.PutAsJsonAsync("/api/groups/42/assign", new Dto.UpdateGroup
-            {
-                Name = "Changed"
-            });
+            HttpResponseMessage response = await client.PostAsJsonAsync("/api/groups/83/assign", 83);
 
             //Assert
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
 
         [TestMethod]
-        public async Task CreateAssignments_WithError_ReturnsBadRequest()
+        public async Task CreateAssignments_WithError_ReturnsNotFoundRequest()
         {
             //Arrange
             using WebApplicationFactory factory = new();
@@ -262,13 +259,10 @@ namespace SecretSanta.Api.Tests.Controllers
             HttpClient client = factory.CreateClient();
 
             //Act
-            HttpResponseMessage response = await client.PutAsJsonAsync("/api/groups/42/assign", new Dto.UpdateGroup
-            {
-                Name = "Changed"
-            });
+            HttpResponseMessage response = await client.PostAsJsonAsync("/api/groups/83/assign", 83);
 
             //Assert
-            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
+            Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
         }
     }
 }
