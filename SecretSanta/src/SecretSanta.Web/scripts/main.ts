@@ -200,7 +200,7 @@ export function alterGroup() {
             try {
                 this.assignError = "";
                 var client = new GroupsClient(apiHost);
-                await client.assign(currentGroupId);
+                await client.GenerateAssignment(currentGroupId);
             } catch (error) {
                 this.assignError = error;
                 console.log(error);

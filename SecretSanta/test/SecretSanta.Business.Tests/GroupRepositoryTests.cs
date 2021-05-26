@@ -113,17 +113,17 @@ namespace SecretSanta.Business.Tests
         }
 
         [TestMethod]
-        public void Assign_WithInvalidId_ReturnsError()
+        public void GenerateAssignment_WithInvalidId_ReturnsError()
         {
             GroupRepository sut = new();
             
-            AssignmentResult result = sut.Assign(43);
+            AssignmentResult result = sut.GenerateAssignment(43);
 
             Assert.AreEqual("Group not found", result.ErrorMessage);
         }
 
         [TestMethod]
-        public void Assign_WithLessThanThreeUsers_ReturnsError()
+        public void GenerateAssignment_WithLessThanThreeUsers_ReturnsError()
         {
             GroupRepository sut = new();
             sut.Create(new()
@@ -132,13 +132,13 @@ namespace SecretSanta.Business.Tests
                 Name = "Group"
             });
 
-            AssignmentResult result = sut.Assign(42);
+            AssignmentResult result = sut.GenerateAssignment(42);
 
             Assert.AreEqual("Group must have at least three users", result.ErrorMessage);
         }
 
         [TestMethod]
-        public void Assign_WithValidGroup_CreatesAssignments()
+        public void GenerateAssignment_WithValidGroup_CreatesAssignments()
         {
             GroupRepository sut = new();
             Group group = sut.Create(new()
@@ -150,7 +150,7 @@ namespace SecretSanta.Business.Tests
             group.Users.Add(new User { FirstName = "Jane", LastName = "Smith" });
             group.Users.Add(new User { FirstName = "Bob", LastName = "Jones" });
 
-            AssignmentResult result = sut.Assign(42);
+            AssignmentResult result = sut.GenerateAssignment(42);
 
             Assert.IsTrue(result.IsSuccess);
             Assert.AreEqual(3, group.Assignments.Count);

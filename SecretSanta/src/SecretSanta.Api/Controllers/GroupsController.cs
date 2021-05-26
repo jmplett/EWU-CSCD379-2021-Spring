@@ -115,9 +115,9 @@ namespace SecretSanta.Api.Controllers
         [HttpPost("{id}/assign")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
-        public ActionResult Assign(int id)
+        public ActionResult GenerateAssignment(int id)
         {
-            var result = GroupRepository.Assign(id);
+            var result = GroupRepository.GenerateAssignment(id);
             if (result.IsSuccess) {
                 return Ok();
             }

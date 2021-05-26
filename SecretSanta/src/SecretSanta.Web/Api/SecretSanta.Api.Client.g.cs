@@ -68,11 +68,11 @@ namespace SecretSanta.Web.Api
         System.Threading.Tasks.Task AddAsync(int id, int userId, System.Threading.CancellationToken cancellationToken);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task AssignAsync(int id);
+        System.Threading.Tasks.Task GenerateAssignmentAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task AssignAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task GenerateAssignmentAsync(int id, System.Threading.CancellationToken cancellationToken);
     
     }
     
@@ -708,14 +708,14 @@ namespace SecretSanta.Web.Api
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task AssignAsync(int id)
+        public System.Threading.Tasks.Task GenerateAssignmentAsync(int id)
         {
-            return AssignAsync(id, System.Threading.CancellationToken.None);
+            return GenerateAssignmentAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task AssignAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task GenerateAssignmentAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");

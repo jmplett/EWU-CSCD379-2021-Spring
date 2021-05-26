@@ -47,7 +47,7 @@ namespace SecretSanta.Business
         }
 
 
-        public AssignmentResult Assign(int id)
+        public AssignmentResult GenerateAssignment(int id)
         {
             if (!MockData.Groups.ContainsKey(id)) {
                 return AssignmentResult.Error("Group not found");
@@ -74,14 +74,14 @@ namespace SecretSanta.Business
             return AssignmentResult.Success();
         }
 
-        private void Shuffle<T>(IList<T> list)  
+        private void Shuffle<User>(IList<User> list)  
         {  
             Random rng = new Random();
             int n = list.Count;  
             while (n > 1) {  
                 n--;  
                 int k = rng.Next(n + 1);
-                T value = list[k];  
+                User value = list[k];  
                 list[k] = list[n];  
                 list[n] = value;  
             }  

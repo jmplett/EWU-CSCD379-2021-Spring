@@ -17,7 +17,7 @@ export interface IGroupsClient {
     put(id: number, group: UpdateGroup): Promise<void>;
     remove(id: number, userId: number): Promise<void>;
     add(id: number, userId: number): Promise<void>;
-    assign(id: number): Promise<void>;
+    generateAssignment(id: number): Promise<void>;
 }
 
 export class GroupsClient implements IGroupsClient {
@@ -429,7 +429,7 @@ export class GroupsClient implements IGroupsClient {
         return Promise.resolve<void>(<any>null);
     }
 
-    assign(id: number , cancelToken?: CancelToken | undefined): Promise<void> {
+    generateAssignment(id: number , cancelToken?: CancelToken | undefined): Promise<void> {
         let url_ = this.baseUrl + "/api/Groups/{id}/assign";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -451,11 +451,11 @@ export class GroupsClient implements IGroupsClient {
                 throw _error;
             }
         }).then((_response: AxiosResponse) => {
-            return this.processAssign(_response);
+            return this.processGenerateAssignment(_response);
         });
     }
 
-    protected processAssign(response: AxiosResponse): Promise<void> {
+    protected processGenerateAssignment(response: AxiosResponse): Promise<void> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
