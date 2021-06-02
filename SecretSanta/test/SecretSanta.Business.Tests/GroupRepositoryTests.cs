@@ -119,7 +119,7 @@ namespace SecretSanta.Business.Tests
 
             AssignmentResult result = sut.GenerateAssignments(42);
 
-            Assert.AreEqual("Group not found", result.ErrorMessage);
+            Assert.AreEqual("Group  must have at least three users", result.ErrorMessage);
         }
 
         [TestMethod]
