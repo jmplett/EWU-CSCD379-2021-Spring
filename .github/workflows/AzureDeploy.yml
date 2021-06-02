@@ -57,6 +57,14 @@ jobs:
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_63C9AB9197A1412AB257ED5A327C668D }}
         package: ${{env.DOTNET_ROOT}}/binSecretSantaApi
     
+    - name: Run Azure webapp deploy action using publish profile credentials
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: jmplettSecretSanta-API
+        slot-name: Production
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4E6987F84DD846A5B94D86FBD4CB89C7 }}
+        package: ${{env.DOTNET_ROOT}}/binSecretSantaApi
+    
     - name: Run Azure WEB deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2
       with:
