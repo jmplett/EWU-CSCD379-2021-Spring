@@ -8,17 +8,17 @@ namespace SecretSanta.E2E.Tests
     [TestClass]
     public class EndToEndTests
     {
-        private static WebHostServerFixture<SecretSanta.Web.Startup, SecretSanta.Api.Startup> Server;
+        private static WebHostServerFixture<Web.Startup, Api.Startup> _Server;
         [ClassInitialize]
         public static void InitializeClass(TestContext testContext)
         {
-            Server = new();
+            _Server = new();
         }
 
         [TestMethod]
         public async Task LandHomepage()
         {
-            var localhost = Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
+            var localhost = _Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
             using var playwright = await Playwright.CreateAsync();
             await using var browser = await playwright.Chromium.LaunchAsync(new LaunchOptions
             {
@@ -37,7 +37,7 @@ namespace SecretSanta.E2E.Tests
         [TestMethod]
         public async Task NavigateToUsers()
         {
-            var localhost = Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
+            var localhost = _Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
             using var playwright = await Playwright.CreateAsync();
             await using var browser = await playwright.Chromium.LaunchAsync(new LaunchOptions
             {
@@ -59,7 +59,7 @@ namespace SecretSanta.E2E.Tests
                 [TestMethod]
         public async Task NavigateToGroups()
         {
-            var localhost = Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
+            var localhost = _Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
             using var playwright = await Playwright.CreateAsync();
             await using var browser = await playwright.Chromium.LaunchAsync(new LaunchOptions
             {
@@ -82,7 +82,7 @@ namespace SecretSanta.E2E.Tests
 
         [TestMethod]
         public async Task CreateGift(){
-            var localhost = Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
+            var localhost = _Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
             using var playwright = await Playwright.CreateAsync();
             await using var browser = await playwright.Chromium.LaunchAsync(new LaunchOptions
             {
@@ -115,7 +115,7 @@ namespace SecretSanta.E2E.Tests
         [TestMethod]
         public async Task ModifyGift()
         {
-            var localhost = Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
+            var localhost = _Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
             using var playwright = await Playwright.CreateAsync();
             await using var browser = await playwright.Chromium.LaunchAsync(new LaunchOptions
             {
@@ -144,7 +144,7 @@ namespace SecretSanta.E2E.Tests
         [TestMethod]
         public async Task DeleteGift()
         {
-            var localhost = Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
+            var localhost = _Server.WebRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost");
             using var playwright = await Playwright.CreateAsync();
             await using var browser = await playwright.Chromium.LaunchAsync(new LaunchOptions
             {
