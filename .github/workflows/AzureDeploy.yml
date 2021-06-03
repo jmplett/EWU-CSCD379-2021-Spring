@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://go.microsoft.com/fwlink/?linkid=2134798
 # More GitHub Actions for Azure: https://go.microsoft.com/fwlink/?linkid=2135048
 
-name: Azure Deploy
+name: Deploy
 
 on:
   push:
@@ -21,7 +21,6 @@ jobs:
     - name: 'Checkout Github Action'
       uses: actions/checkout@master
 
-
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -33,43 +32,32 @@ jobs:
     - name: npm build
       run: npm run build:prod
 
-    - name: Build Web
-      working-directory: ./SecretSanta/src/SecretSanta.Web/
+    - name: (WEB) Build with dotnet
       run: dotnet build --configuration Release
 
-    - name: Publish Web
-      working-directory: ./SecretSanta/src/SecretSanta.Web/
+    - name: (WEB) dotnet publish
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/binSecretSanta
-      
-    - name: Build Api
+
+    - name: (API) Build with dotnet
       working-directory: ./SecretSanta/src/SecretSanta.Api
       run: dotnet build --configuration Release
-      
-    - name: Publish Api
-      working-directory: ./SecretSanta/src/SecretSanta.Api/
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/binSecretSantaApi
-      
-    - name: Run Azure API deploy action using publish profile credentials
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: jplettSecretSanta-Api
-        slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_63C9AB9197A1412AB257ED5A327C668D }}
-        package: ${{env.DOTNET_ROOT}}/binSecretSantaApi
-    
-    - name: Run Azure webapp deploy action using publish profile credentials
+
+    - name: (API) dotnet publish
+      working-directory: ./SecretSanta/src/SecretSanta.Api
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/apiSecretSanta
+
+    - name: Run Azure webapp deploy API using publish profile credentials
       uses: azure/webapps-deploy@v2
       with:
         app-name: jmplettSecretSanta-API
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4E6987F84DD846A5B94D86FBD4CB89C7 }}
-        package: ${{env.DOTNET_ROOT}}/binSecretSantaApi
-    
-    - name: Run Azure WEB deploy action using publish profile credentials
+        package: ${{env.DOTNET_ROOT}}/apiSecretSanta
+
+    - name: Run Azure webapp deploy WEB using publish profile credentials
       uses: azure/webapps-deploy@v2
       with:
-        app-name: jplettSecretSanta
+        app-name: jmplettSecretSanta
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_37168F86DD5246679DA6B0193758CE9A }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_285CF45FD2184C7C8285E4875494877E }}
         package: ${{env.DOTNET_ROOT}}/binSecretSanta
-
