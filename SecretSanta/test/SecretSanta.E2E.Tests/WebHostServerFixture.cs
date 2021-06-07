@@ -115,7 +115,7 @@ namespace SecretSanta.E2E.Tests
                     .UseStaticWebAssets()
                     .UseStartup<WStartup>()
                     .UseSetting("ApiHost", ApiRootUri.AbsoluteUri.Replace("127.0.0.1", "localhost"))
-                    .UseUrls($"https://127.0.0.1:0")) // :0 allows to choose a port automatically
+                    .UseUrls($"http://127.0.0.1:0")) // :0 allows to choose a port automatically
                 .Build();
         }
 
