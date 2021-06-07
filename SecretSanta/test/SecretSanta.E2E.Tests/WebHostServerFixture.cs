@@ -141,7 +141,7 @@ namespace SecretSanta.E2E.Tests
                     .UseSolutionRelativeContentRoot(Path.Combine("src", typeof(AStartup).Assembly.GetName().Name))
                     .UseStaticWebAssets()
                     .UseStartup<AStartup>()
-                    .UseUrls($"https://127.0.0.1:0")) // :0 allows to choose a port automatically
+                    .UseUrls($"http://127.0.0.1:0")) // :0 allows to choose a port automatically
                 .Build();
         }
     }
