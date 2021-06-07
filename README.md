@@ -1,6 +1,6 @@
 [![Assignment Build And Test](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AssignmentBuild.yml/badge.svg)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/AssignmentBuild.yml)
 
-[![Deploy](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/Deploy.yml/badge.svg)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/Deploy.yml)
+[![Deploy](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/Deploy.yml/badge.svg?branch=Assignment9)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/Deploy.yml)
 
 # Assignment 9 & 10
 
