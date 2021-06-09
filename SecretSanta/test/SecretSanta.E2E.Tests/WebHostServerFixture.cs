@@ -82,6 +82,7 @@ namespace SecretSanta.E2E.Tests
             WebHost?.StopAsync();
             ApiHost?.Dispose();
             ApiHost?.StopAsync();
+            GC.SuppressFinalize(this);
         }
 
         protected abstract IHost CreateWebHost();

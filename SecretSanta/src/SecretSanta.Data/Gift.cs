@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace SecretSanta.Data
 {
@@ -18,7 +18,8 @@ namespace SecretSanta.Data
 
         public Gift()
         {
-            Receiver = new User();
+            if(Receiver is null)
+                throw new ArgumentNullException(nameof(Receiver));
         }
     }
 }
