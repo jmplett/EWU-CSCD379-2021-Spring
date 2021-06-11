@@ -5,7 +5,7 @@ using PlaywrightSharp;
 
 namespace SecretSanta.E2E.Tests
 {
-    [TestClass]
+[TestClass]
     public class EndToEndTests
     {
         private static WebHostServerFixture<Web.Startup, Api.Startup> _Server;
@@ -34,7 +34,7 @@ namespace SecretSanta.E2E.Tests
             Assert.AreEqual("Secret Santa", headerContent);
         }
 
-        [Ignore]
+
         [TestMethod]
         public async Task VerifyAllNavigationLinksInHeaderWork()
         {
@@ -56,10 +56,6 @@ namespace SecretSanta.E2E.Tests
 
             await page.ClickAsync("text=Groups");
             button = await page.WaitForSelectorAsync("a:has-text('Create Group')");
-            Assert.IsNotNull(button);
-
-            await page.ClickAsync("text=Gifts");
-            button = await page.WaitForSelectorAsync("a:has-text('Create Gift')");
             Assert.IsNotNull(button);
         }
 

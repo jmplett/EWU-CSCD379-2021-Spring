@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SecretSanta.Business;
-using SecretSanta.Data;
 
 namespace SecretSanta.Api
 {
@@ -28,9 +26,6 @@ namespace SecretSanta.Api
                            .AllowAnyHeader();
                 });
             });
-
-            /*services.AddDbContext<SecretSantaContext>(options =>
-                options.UseSqlite("Data Source=main.db"));*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

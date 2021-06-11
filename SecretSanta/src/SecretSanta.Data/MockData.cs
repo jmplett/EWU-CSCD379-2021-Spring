@@ -66,6 +66,15 @@ namespace SecretSanta.Data
                     FirstName = "Miracle",
                     LastName = "Max"
                 }
+            },
+            {
+                6,
+                new User
+                {
+                    Id = 6,
+                    FirstName = "Justin",
+                    LastName = "Plett"
+                }
             }
         };
 

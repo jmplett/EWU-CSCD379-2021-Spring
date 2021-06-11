@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace SecretSanta.Data
 {
@@ -8,6 +10,8 @@ namespace SecretSanta.Data
         public string Name { get; set; } = "";
 
         public List<User> Users { get; } = new();
+
         public List<Assignment> Assignments { get; } = new();
+
     }
 }

@@ -1,4 +1,7 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using SecretSanta.Web.Data;
+using SecretSanta.Web.ViewModels;
 
 namespace SecretSanta.Web.Controllers
 {
@@ -18,5 +21,7 @@ namespace SecretSanta.Web.Controllers
         {
             return View();
         }
+
+        
     }
 }
