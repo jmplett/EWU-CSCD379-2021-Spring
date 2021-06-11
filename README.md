@@ -2,6 +2,10 @@
 
 [![Deploy](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/Deploy.yml/badge.svg?branch=Assignment9)](https://github.com/jmplett/EWU-CSCD379-2021-Spring/actions/workflows/Deploy.yml)
 
+https://jmplettsecretsanta.azurewebsites.net/
+
+https://github.com/jmplett/EWU-CSCD379-2021-Spring/tree/Assignment9
+
 # Assignment 9 & 10
 
 ## Overview
