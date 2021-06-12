@@ -18,7 +18,7 @@ namespace SecretSanta.Api
             }
             if(deploy == "--DeploySampleData"){
 
-                Console.WriteLine("Deploying Data...");
+                Console.WriteLine("Seeding Data...");
                 using (var dbcontext = new DbContext()){
                     dbcontext.Database.EnsureDeleted();
                     dbcontext.Database.Migrate();
@@ -32,7 +32,7 @@ namespace SecretSanta.Api
                         dbcontext.Gifts.Add(i);
                     }
                     dbcontext.SaveChangesAsync();
-                    Console.WriteLine("Data Deployed");
+                    Console.WriteLine("Data Successfully Seeded");
                 }
             }
             var host = CreateHostBuilder(args).Build();
