@@ -6,6 +6,8 @@ https://jmplettsecretsanta.azurewebsites.net/
 
 https://github.com/jmplett/EWU-CSCD379-2021-Spring/tree/Assignment9
 
+End to End Video https://youtu.be/pCBtX-RuMeg
+
 # Assignment 9 & 10
 
 ## Overview
