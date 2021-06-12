@@ -29,10 +29,10 @@ namespace SecretSanta.Web
         {
             if (env.IsDevelopment())
             {
-                logger.LogInformation("In Development.");
+                logger.LogInformation("Running");
                 app.UseDeveloperExceptionPage();
             } else {
-                logger.LogInformation("Not Development.");
+                logger.LogInformation("Not Running");
             }
 
             app.UseRouting();
